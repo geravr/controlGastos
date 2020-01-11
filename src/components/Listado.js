@@ -1,14 +1,15 @@
 import React from 'react';
 import Gasto from './Gasto'
 
-function Listado({gastos}) {
+function Listado({gastos, eliminarGasto}) {
     return ( 
         <div className="gastos-realizados">
-            <h2>Listado</h2>
-            {gastos.map(gasto => (
+            {gastos.map((gasto, index) => (
                 <Gasto
                 key={gasto.id}
                 gasto={gasto}
+                index={index}
+                eliminarGasto={eliminarGasto}
                 />
             ))}
         </div>

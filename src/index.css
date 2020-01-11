@@ -97,7 +97,26 @@ h2 {
   margin:0;
 }
 .gastos-realizados li p .gasto {
-  background-color: #004085;
-  padding: 1rem;
+  background-color: #26c6da;
   color:white;
+  font-size: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 5px;
+}
+.button-delete {
+  /* Alinear items desde el final */
+  text-decoration: none;
+  text-align: end;
+  color: red;
+  font-size: 12px;
+  font-weight: 800;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 5px;
+  ;
 }

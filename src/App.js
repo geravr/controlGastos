@@ -8,9 +8,10 @@ import ControlPresupuesto from './components/ControlPresupuesto'
 
 function App() {
 
+
   const [presupuesto, setPresupuesto] = useState(0);
   const [restante, setRestante] = useState(0);
-  const [presupuestoInicial, setPresupuestoInicial] = useState(true);
+  const [verificarPresupuestoInicial, setVerificarPresupuestoInicial] = useState(true);
   const [crearGasto, setCrearGasto] = useState(false);
   const [gasto, setGasto] = useState({});
   const [gastos, setGastos] = useState([]);
@@ -29,34 +30,47 @@ function App() {
     }
   }, [crearGasto, gastos, gasto, restante]);
 
+
+  
+  //Eliminar gasto del state
+  const eliminarGasto = (index, cantidadGasto) => {
+    const nuevosGastos = [...gastos];
+    nuevosGastos.splice(index, 1);
+    setGastos(nuevosGastos);
+    const sumarGastoEliminado = restante + cantidadGasto;
+    setRestante(sumarGastoEliminado);
+  }
+
   // Componente condicional
   let componente;
-  if (presupuestoInicial) {
+  if (verificarPresupuestoInicial) {
     componente = 
     <PresupuestoInicial
     setPresupuesto={setPresupuesto}
-    setPresupuestoInicial={setPresupuestoInicial}
+    setVerificarPresupuestoInicial={setVerificarPresupuestoInicial}
     setRestante={setRestante}
     />
   } else {
     componente = <div className="row">
       <div className="one-half column">
-        <GastosForm
+        <GastosForm 
         setGasto={setGasto}
         setCrearGasto={setCrearGasto}
         />
       </div>
       <div className="one-half column">
-        <Listado
-        gastos={gastos}
-        />
         <ControlPresupuesto
           presupuesto={presupuesto}
           restante={restante}
         />
+        <Listado
+        eliminarGasto={eliminarGasto}
+        gastos={gastos}
+        />
       </div>
    </div>
   }
+
 
 
   return (

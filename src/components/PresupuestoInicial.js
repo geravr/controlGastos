@@ -4,7 +4,7 @@ import Error from './Error'
 function PresupuestoInicial(props) {
 
     // props
-    const { setPresupuesto, setPresupuestoInicial, setRestante } = props;
+    const { setPresupuesto, setVerificarPresupuestoInicial, setRestante } = props;
 
     const [cantidad, setCantidad] = useState(0);
     const [error, setError] = useState(false);
@@ -28,7 +28,7 @@ function PresupuestoInicial(props) {
         setError(false);
         setPresupuesto(cantidad);
         setRestante(cantidad);
-        setPresupuestoInicial(false);
+        setVerificarPresupuestoInicial(false);
     }
 
     return ( 

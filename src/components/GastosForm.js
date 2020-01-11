@@ -7,7 +7,7 @@ function GastosForm (props) {
     const { setGasto, setCrearGasto } = props;
 
     const [nombreGasto, setNombrerGasto] = useState('');
-    const [cantidadGasto, setCantidadGasto] = useState(0);
+    const [cantidadGasto, setCantidadGasto] = useState('');
     const [error, setError] = useState(false);
 
 
@@ -50,7 +50,7 @@ function GastosForm (props) {
             {error ? <Error mensaje="Ambos campos son obligatorios" /> : null}
 
             <div className="campo">
-                <label>Nombre gatos</label>
+                <label>Nombre gasto</label>
                 <input
                 type="text"
                 className="u-full-width"
@@ -60,7 +60,7 @@ function GastosForm (props) {
                 />
             </div>
             <div className="campo">
-                <label>Cantidad gato</label>
+                <label>Cantidad gasto</label>
                 <input
                 type="number"
                 className="u-full-width"
