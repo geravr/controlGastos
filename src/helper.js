@@ -1,12 +1,21 @@
-export const revisarPresupuesto = (presupuesto,restante) => {
+export const revisarPresupuesto = ( totalPresupuestos, restante ) => {
     let clase;
+
     // Comprobar el 25% 
-    if( (presupuesto / 4) > restante) {
+    if( (totalPresupuestos / 4) > restante) {
          clase = 'alert alert-danger';
-    } else if( (presupuesto / 2) > restante) {
+    } else if( (totalPresupuestos / 2) > restante) {
         clase = 'alert alert-warning'
     } else {
         clase = 'alert alert alert-success';
     }
     return clase;
 } 
+
+export const outsideClic = (id, setVerificarAgregarPresupuesto) => {
+    window.onclick = function(event) {
+        if (event.target === document.getElementById(id)) {
+            setVerificarAgregarPresupuesto(false);
+        }
+      }
+}

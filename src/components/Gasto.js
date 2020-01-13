@@ -1,19 +1,17 @@
 import React from 'react';
 
 const Gasto = ({gasto, index, eliminarGasto}) =>  ( 
-    <li className="gastos">
-        <a
-        href="/#"
-        rel="noopener noreferrer"
-        className="button-delete"
-        onClick={() => eliminarGasto(index, gasto.cantidadGasto) }
-        >X</a>
-        <p>
-            {gasto.nombreGasto}
+    <li className="gastos animated fadeIn fast twelve columns">
+        {gasto.nombreGasto}
+        <div className="lista-pg">
             <span className="gasto">
                 $ {gasto.cantidadGasto}
             </span>
-        </p>
+            <span
+            className="button-delete"
+            onClick={() => eliminarGasto(index, gasto.cantidadGasto) }
+            >X</span>
+        </div>
     </li>
 );
  

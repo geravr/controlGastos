@@ -1,7 +1,7 @@
 import React from 'react';
 import Gasto from './Gasto'
 
-function Listado({gastos, eliminarGasto}) {
+function ListadoGastos({gastos, eliminarGasto}) {
     return ( 
         <div className="gastos-realizados">
             {gastos.map((gasto, index) => (
@@ -16,4 +16,4 @@ function Listado({gastos, eliminarGasto}) {
      );
 }
  
-export default Listado;
+export default ListadoGastos;

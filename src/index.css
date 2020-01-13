@@ -3,8 +3,8 @@
 }
 body {
   background: #000428;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #004e92, #000428);  
-  background: linear-gradient(to right, #004e92, #000428); 
+  background: -webkit-linear-gradient(to right, #5433FF, #0072ff, #20BDFF);  
+  background: linear-gradient(to right, #5433FF, #0072ff, #20BDFF); 
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -19,6 +19,7 @@ header {
   background-color: white;
   padding: 30px;
   border-radius: 20px;
+  margin-bottom: 5rem;
 }
 .presupuesto p{
   margin-bottom: 0;
@@ -29,6 +30,14 @@ header {
 }
 #gastos {
   margin-bottom: 30px;
+}
+.lista-pg{
+  display: flex;
+  float: right !important;
+  margin-right: 5px;
+}
+.lista-pg span{
+margin: 0 5px 0 5px;
 }
 h1 {
   font-family: 'Raleway', sans-serif;
@@ -59,17 +68,17 @@ h2 {
   border-radius: .25rem;
 }
 .alert-primary {
-  color: #004085;
+  color: steelblue;
   background-color: #cce5ff;
   border-color: #b8daff;
 }
 .alert-success {
-  color: #155724;
-  background-color: #d4edda;
+  color: #29754b;
+  background-color: #c3e6cb;
   border-color: #c3e6cb;
 }
 .alert-danger {
-  color: #721c24;
+  color: #b8676f;
   background-color: #f8d7da;
   border-color: #f5c6cb;
 }
@@ -84,7 +93,7 @@ h2 {
 .gastos-realizados li{
   list-style: none;
   margin-bottom: 0rem;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 2px solid #e1e1e1;
   padding: 1rem 0;
 }
 .gastos-realizados li:last-of-type {
@@ -92,31 +101,150 @@ h2 {
 }
 .gastos-realizados li p {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin:0;
+  margin: 5px 0 -5px 0;
 }
-.gastos-realizados li p .gasto {
+.gastos-realizados li p:nth-child(2) {
+  justify-content: flex-end;
+}
+.gastos-realizados li div .gasto {
   background-color: #26c6da;
   color:white;
   font-size: 12px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 3px 8px 0 8px;
   border-radius: 5px;
 }
+.gastos-realizados li p span {
+  margin: 0 3px 0 3px;
+}
 .button-delete {
-  /* Alinear items desde el final */
-  text-decoration: none;
-  text-align: end;
   color: red;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.agregar-presupuesto {
+  all: initial;
+  float: right !important;
+  margin-right: 5px;
+}
+div.agregar-presupuesto span {
+  cursor: pointer;
+}
+.add-money {
+  background-color: white;
+  color: steelblue;
+  padding: 2px;
+  border-radius: 48%;
+  margin: -6px -10px 6px -10px;
+}
+.validar-input {
+  float: right;
   font-size: 12px;
-  font-weight: 800;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
+  font-weight: 500;
+  color: white;
+  background-color: lightcoral;
+  padding: 0 3px 0 3px;
+  margin: 4px 2px -5px 0;
+  border-radius: 2px;
+}
+.presupuesto {
+  background-color: mediumseagreen;
+  color:white;
+  font-size: 12px;
+  padding: 3px 8px 0 8px;
   border-radius: 5px;
-  ;
+}
+.presupuestos-realizados  {
+  margin-bottom: 2rem;
+}
+.presupuestos-realizados li{
+  list-style: none;
+  margin-bottom: 0rem;
+  border-bottom: 2px solid #c3e6cb;
+  padding: 1rem 0;
+}
+.presupuestos-realizados li p {
+  display: flex;
+  align-items: center;
+  margin: 5px 0 -5px 0;
+}
+.presupuestos-realizados li p:nth-child(2) {
+  justify-content: flex-end;
+}
+.presupuestos-realizados li p span {
+  margin: 0 3px 0 3px;
+}
+
+/******* MODAL CSS *******/
+
+/* The Modal (background) */
+.modal {
+  font-family: sans-serif;
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  max-width: 500px !important;
+  border-radius: 7px 7px 5px 5px;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(77, 77, 77);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 10px 15px 1px 15px;
+  background-color: #5cb85c;
+  color: white;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+}
+
+.modal-body {
+  padding: 15px 15px;
 }

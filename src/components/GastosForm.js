@@ -11,7 +11,8 @@ function GastosForm (props) {
     const [error, setError] = useState(false);
 
 
-    const agregarGasto = e => {
+    // Agregar gasto
+    const handleSubmit = e => {
         e.preventDefault();
 
         // Validar
@@ -43,7 +44,7 @@ function GastosForm (props) {
 
     return (
         <form
-        onSubmit={agregarGasto}
+        onSubmit={handleSubmit}
         >
             <h2>Agrega tus gastos aquí</h2>
 
@@ -53,6 +54,7 @@ function GastosForm (props) {
                 <label>Nombre gasto</label>
                 <input
                 type="text"
+                autoFocus={true}
                 className="u-full-width"
                 placeholder="Ej. Comida"
                 onChange={e => setNombrerGasto(e.target.value)}

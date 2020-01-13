@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Error = ({mensaje}) => ( 
-        <p className="alert alert-danger error">{mensaje}</p>
+        <div className="alert alert-danger error animated bounceIn">
+                <p>{mensaje}</p>
+        </div>
      );
  
 export default Error;
