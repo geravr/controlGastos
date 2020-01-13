@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import AgregarPresupuestoForm from './AgregarPresupuestoForm'
+import IngresoForm from './IngresoForm'
 import { revisarPresupuesto } from './../helper'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWallet, faPlus, faMoneyBillWave ,faCoins } from '@fortawesome/free-solid-svg-icons'
@@ -16,7 +16,7 @@ function ControlPresupuesto(props) {
     //Form agregar presupuesto condicional
     let formAgregarPresupuesto;
     if(verificarAgregarPresupuesto) {
-        formAgregarPresupuesto = <AgregarPresupuestoForm
+        formAgregarPresupuesto = <IngresoForm
         setCrearPresupuesto={setCrearPresupuesto}
         setPresupuesto={setPresupuesto}
         setError={setError}
@@ -36,7 +36,7 @@ function ControlPresupuesto(props) {
                    icon={faWallet} 
                    size="lg" 
                    className="iconoPresupuesto" 
-                   /> Presupuesto Inicial ${presupuestoInicial}
+                   /> Presupuesto Inicial: ${presupuestoInicial}
                 
                     <div className="agregar-presupuesto">
                         {formAgregarPresupuesto}

@@ -4,7 +4,7 @@ import PresupuestoInicial from './components/PresupuestoInicial'
 import GastosForm from './components/GastosForm'
 import ListadoGastos from './components/ListadoGastos'
 import ControlPresupuesto from './components/ControlPresupuesto'
-import ListadoPresupuestos from './components/ListadoPresupuestos';
+import ListadoIngresos from './components/ListadoIngresos';
 
 
 function App() {
@@ -97,7 +97,7 @@ function App() {
           setCrearPresupuesto={setCrearPresupuesto}
           setPresupuesto={setPresupuesto}
         />
-        <ListadoPresupuestos
+        <ListadoIngresos
         presupuestos={presupuestos}
         eliminarPresupuesto={eliminarPresupuesto}
         />

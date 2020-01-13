@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Presupuesto = ({presupuesto, index, eliminarPresupuesto}) => {
+const Ingreso = ({presupuesto, index, eliminarPresupuesto}) => {
     return ( 
         <li className="gastos animated fadeIn fast twelve columns">
-            Presupuesto Adicional
+            Ingreso adicional
             <div className="lista-pg">
                 <span className="presupuesto">
                     $ {presupuesto.cantidadPresupuesto}
@@ -18,4 +18,4 @@ const Presupuesto = ({presupuesto, index, eliminarPresupuesto}) => {
      );
 }
  
-export default Presupuesto;
+export default Ingreso;

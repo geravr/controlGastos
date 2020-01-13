@@ -1,11 +1,11 @@
 import React from 'react';
-import Presupuesto from './Presupuesto';
+import Ingreso from './Ingreso';
 
-function ListadoPresupuestos({presupuestos, eliminarPresupuesto}) {
+function ListadoIngresos({presupuestos, eliminarPresupuesto}) {
     return (
         <div className="presupuestos-realizados row">
             {presupuestos.map((presupuesto, index) => (
-                <Presupuesto
+                <Ingreso
                 key={presupuesto.id}
                 presupuesto={presupuesto}
                 index={index}
@@ -16,4 +16,4 @@ function ListadoPresupuestos({presupuestos, eliminarPresupuesto}) {
     );
 }
 
-export default ListadoPresupuestos;
+export default ListadoIngresos;

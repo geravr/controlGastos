@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import shortid from 'shortid';
 import Error from './Error';
-import { outsideClic } from './../helper';
+import { outsideClic } from '../helper';
 
-function AgregarPresupuestoForm(props) {
+function IngresoForm(props) {
 
     const {setVerificarAgregarPresupuesto, setCrearPresupuesto, setPresupuesto, error, setError} = props;
 
@@ -56,7 +56,7 @@ function AgregarPresupuestoForm(props) {
             className="close" 
             onClick={handleClick}
             >×</span>
-            <h4>Presupuesto adicional</h4>
+            <h4>Ingreso adicional</h4>
           </div>
           <div className="modal-body container">
           {error ? <Error mensaje="Presupuesto incorrecto" /> : null}
@@ -78,7 +78,7 @@ function AgregarPresupuestoForm(props) {
                 <input 
                 type="submit"
                 className="button-primary u-full-width" 
-                value="Agregar presupuesto" />
+                value="Agregar ingreso" />
             </form>
           </div>
         </div>
@@ -86,4 +86,4 @@ function AgregarPresupuestoForm(props) {
     );
 }
  
-export default AgregarPresupuestoForm;
+export default IngresoForm;
