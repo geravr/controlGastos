@@ -6,55 +6,71 @@ import { faWallet, faPlus, faMoneyBillWave ,faCoins } from '@fortawesome/free-so
 
 function ControlPresupuesto(props) {
 
-    const {presupuestoInicial, totalPresupuestos, restante, setCrearPresupuesto, setPresupuesto} = props;
+    const {presupuestoInicial, totalIngresos, restante, setCrearIngreso, setIngreso} = props;
 
-    const [verificarAgregarPresupuesto, setVerificarAgregarPresupuesto] = useState(false);
+    const [verificarAgregarIngreso, setVerificarAgregarIngreso] = useState(false);
     const [error, setError] = useState(false);
 
 
 
     //Form agregar presupuesto condicional
     let formAgregarPresupuesto;
-    if(verificarAgregarPresupuesto) {
-        formAgregarPresupuesto = <IngresoForm
-        setCrearPresupuesto={setCrearPresupuesto}
-        setPresupuesto={setPresupuesto}
-        setError={setError}
-        error={error}
-        setVerificarAgregarPresupuesto={setVerificarAgregarPresupuesto}
+    if (verificarAgregarIngreso) {
+      formAgregarPresupuesto = (
+        <IngresoForm
+          setCrearIngreso={setCrearIngreso}
+          setIngreso={setIngreso}
+          setError={setError}
+          error={error}
+          setVerificarAgregarIngreso={setVerificarAgregarIngreso}
         />
+      );
     } else {
-        formAgregarPresupuesto = null
+      formAgregarPresupuesto = null;
     }
 
-    return ( 
-    <Fragment>
+    return (
+      <Fragment>
         <h2>Presupuesto</h2>
-            <div className="alert alert-primary row">
-                <div className="twelve columns">
-                   <FontAwesomeIcon 
-                   icon={faWallet} 
-                   size="lg" 
-                   className="iconoPresupuesto" 
-                   /> Presupuesto Inicial: ${presupuestoInicial}
-                
-                    <div className="agregar-presupuesto">
-                        {formAgregarPresupuesto}
-                        <span
-                        onClick={() => {setVerificarAgregarPresupuesto(true)}}
-                        >
-                            <FontAwesomeIcon icon={faMoneyBillWave} color="steelblue" size="lg" />
-                            <FontAwesomeIcon icon={faPlus} color="steelblue" size="xs" inverse className="add-money" />
-                        </span>
-                    </div>
-                </div>
+        <div className="alert alert-primary row">
+          <div className="twelve columns">
+            <FontAwesomeIcon
+              icon={faWallet}
+              size="lg"
+            />
+            {` Presupuesto Inicial: ${presupuestoInicial}`}
+            <div className="agregar-presupuesto">
+              {formAgregarPresupuesto}
+              <span
+                onClick={() => {
+                  setVerificarAgregarIngreso(true);
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faMoneyBillWave}
+                  color="steelblue"
+                  size="lg"
+                />
+                <FontAwesomeIcon
+                  icon={faPlus}
+                  color="steelblue"
+                  size="xs"
+                  inverse
+                  className="add-money"
+                />
+              </span>
+            </div>
+          </div>
         </div>
-        <div className={revisarPresupuesto(totalPresupuestos, restante)}>
-            <FontAwesomeIcon icon={faCoins} size="lg" className="iconoRestante" /> Saldo Restante: ${restante}
+        <div className={revisarPresupuesto(totalIngresos, restante)}>
+          <FontAwesomeIcon 
+          icon={faCoins} 
+          size="lg" 
+          className="iconoRestante" />
+          {` Saldo Restante: ${restante}`}
         </div>
-    </Fragment>
-
- );
+      </Fragment>
+    );
 }
  
 export default ControlPresupuesto;

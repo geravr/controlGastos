@@ -1,18 +1,18 @@
 import React from 'react';
 import Ingreso from './Ingreso';
 
-function ListadoIngresos({presupuestos, eliminarPresupuesto}) {
+function ListadoIngresos({ingresos, eliminarIngreso}) {
     return (
-        <div className="presupuestos-realizados row">
-            {presupuestos.map((presupuesto, index) => (
-                <Ingreso
-                key={presupuesto.id}
-                presupuesto={presupuesto}
-                index={index}
-                eliminarPresupuesto={eliminarPresupuesto}
-                />
-            ))}
-        </div>
+      <div className="presupuestos-realizados row">
+        {ingresos.map((ingreso, index) => (
+          <Ingreso
+            key={ingreso.id}
+            ingreso={ingreso}
+            index={index}
+            eliminarIngreso={eliminarIngreso}
+          />
+        ))}
+      </div>
     );
 }
 

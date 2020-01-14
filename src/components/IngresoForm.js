@@ -5,48 +5,48 @@ import { outsideClic } from '../helper';
 
 function IngresoForm(props) {
 
-    const {setVerificarAgregarPresupuesto, setCrearPresupuesto, setPresupuesto, error, setError} = props;
+    const {setVerificarAgregarIngreso, setCrearIngreso, setIngreso, error, setError} = props;
 
-    const [cantidadPresupuesto, setCantidadPresupuesto] = useState('');
+    const [cantidadIngreso, setCantidadIngreso] = useState('');
 
-    //Remueve el form de AgregarPresupuesto
+    // Remover el form de ingreso
     const handleClick = () => {
-        setVerificarAgregarPresupuesto(false);
-        setError(false);
-    }
+      setVerificarAgregarIngreso(false);
+      setError(false);
+    };
 
-    // Agregar presupuesto nuevo
+    // Agregar nuevo ingreso
     const handleSubmit = e => {
+      e.preventDefault();
 
-        e.preventDefault();
+      // Validar cantidad ingresada
+      if (cantidadIngreso <= 0 || isNaN(cantidadIngreso) || cantidadIngreso === "") {
+        setError(true);
+        return;
+      }
 
-        // Validar cantidad ingresada
-        if( cantidadPresupuesto <= 0 || isNaN(cantidadPresupuesto) || cantidadPresupuesto === '' ) {
-            setError(true);
-            return;
-        }
+      //Construir objeto nuevo ingreso
+      const ingreso = {
+        cantidadIngreso,
+        id: shortid.generate()
+      };
 
-        //Construir objeto nuevo presupuesto
-        const presupuesto = {
-            cantidadPresupuesto,
-            id: shortid.generate()
-        }
+      // Pasar el ingreso al state principal
+      setIngreso(ingreso);
+      setCrearIngreso(true);
 
-        //Pasar el presupuesto al state principal
-        setPresupuesto(presupuesto);
-        setCrearPresupuesto(true);
+      // Eliminar alerta de error
+      setError(false);
 
-        // Eliminar alerta
-        setError(false);
+      // Remover el Form
+      setVerificarAgregarIngreso(false);
 
-        // Remover el Form
-        setVerificarAgregarPresupuesto(false);
+      // Resetear el state (input)
+      setCantidadIngreso("");
+    };
 
-        // Resetear state 
-        setCantidadPresupuesto('');
-    }
-
-    outsideClic('modal', setVerificarAgregarPresupuesto);
+    // Detectar clic fuera del form y removerlo
+    outsideClic('modal', setVerificarAgregarIngreso);
 
     return (
       <div className="modal" id="modal">
@@ -59,20 +59,20 @@ function IngresoForm(props) {
             <h4>Ingreso adicional</h4>
           </div>
           <div className="modal-body container">
-          {error ? <Error mensaje="Presupuesto incorrecto" /> : null}
+          {error ? <Error mensaje="Ingreso incorrecto" /> : null}
             <form 
             onSubmit={handleSubmit}
             className="formulario-presupuesto"
             >
               <input
                 type="number"
-                name="agregarPresupuesto"
+                name="agregarIngreso"
                 className="u-full-width"
                 autoFocus={true}
                 placeholder="$200"
-                value={cantidadPresupuesto}
+                value={cantidadIngreso}
                 onChange={e =>
-                  setCantidadPresupuesto(parseInt(e.target.value, 10))
+                  setCantidadIngreso(parseInt(e.target.value, 10))
                 }
               />
                 <input 

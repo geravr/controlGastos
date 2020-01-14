@@ -12,10 +12,10 @@ export const revisarPresupuesto = ( totalPresupuestos, restante ) => {
     return clase;
 } 
 
-export const outsideClic = (id, setVerificarAgregarPresupuesto) => {
+export const outsideClic = (id, setVerificarAgregarIngreso) => {
     window.onclick = function(event) {
         if (event.target === document.getElementById(id)) {
-            setVerificarAgregarPresupuesto(false);
+            setVerificarAgregarIngreso(false);
         }
       }
 }
